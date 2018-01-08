@@ -1,0 +1,30 @@
+body{
+  background: #333;
+
+}
+
+.box{
+  background: white;
+  width: 300px;
+  height: 300px;
+  position: relative;
+
+  margin: auto;
+  top:200px;
+
+  -webkit-transition-property: all;
+
+  -webkit-transition-duration:1s,1s;
+/*  -webkit-transition-delay:1s;*/
+  -webkit-transition-timing-function:ease-in;
+
+}
+
+.box:hover{
+  background: red;
+  border-radius:50%;
+  -webkit-transform: rotateY(180deg);
+
+
+
+}

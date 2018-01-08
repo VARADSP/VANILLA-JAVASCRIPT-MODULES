@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax 5 -Fetching from PHP MYSQL </title>
+</head>
+<body>
+
+<button id="button2">
+	Get Users
+</button>
+<br><br>
+<h1>User</h1>
+<div id="user">
+	
+</div>
+<h1>Users</h1>
+<div id="users">
+	
+</div>
+
+
+
+
+<script type="text/javascript">
+
+
+document.getElementById('button2').addEventListener('click',loadUsers);
+
+
+
+function loadUsers(){
+	var xhr = new XMLHttpRequest();
+
+	xhr.open('GET','users.php',true);
+
+	xhr.onload = function(){
+		if(this.status == 200){
+		var users = JSON.parse(this.responseText);
+		var output = '';
+		for(var i in users){
+			output += '<ul>'+
+		 '<li>Emp No : '+users[i].empno+'</li> ' +
+		 '<li>Ename : '+users[i].ename+'</li> ' +
+		 '<li>Salary : '+users[i].sal+'</li> ' +
+		 '</ul>';
+
+
+		}
+		
+		 document.getElementById('users').innerHTML = output;
+		}
+	}
+	xhr.send();
+}		
+
+
+
+</script>
+</body>
+</html>
