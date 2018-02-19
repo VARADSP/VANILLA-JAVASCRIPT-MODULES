@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+			body{
+				font-size: 17px;
+				font-family: Arial;
+				background: #f4f4f4;
+				line-height: 1.5em;
+
+			}
+			header{
+				background: #333;
+				color: #fff;
+				padding: 20px;
+				text-align: center;
+				border-bottom: 4px #000 solid;
+				margin-bottom: 10px;
+
+			}
+			#container{
+				width: 90%;
+				margin: auto;
+				padding: 10px;
+
+			}
+	</style>
+</head>
+<body>
+<header><h1>Jquery Crash Course</h1></header>
+	<div id="container">
+	<h3>Mouse Events</h3>
+	<button id="btn1">Toggle </button>
+	<button id="btn2">Toggle Color</button>
+	<button id="btn3">Hold</button>
+	<button id="btn4">Event</button>
+
+
+	<p id="para1">			This is just a example paragraph which I am using for this jquery session that I am <span>following from the internet cause I have nothing to do </span>now so Its just a passing of <span>time for me and also learning something new.</span>
+
+	<h1 id="coords"></h1>
+	<hr>
+	<form id="form">
+			<label>Name:</label><br>
+			<input type="text" name="name" id="name">
+			<br>
+			<label>Email:</label><br>
+			<input type="email" name="email" id="email">
+			<br>
+			<label>Gender:</label><br>
+			<select id="gender" name="gender">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+			</select>
+			<br>
+			<input type="submit" value="Submit">
+			
+	</form>
+</p>
+	</div>
+	<script>
+				//$('*').hide();
+				$(document).ready(function(){
+
+				/*$('#btn1').click(function(){
+					alert('Button Clicked');
+				});*/
+			/*	$('#btn1').on('click',function(){
+					$('#para1').toggle();
+				});
+
+				$('#btn2').on('dblclick',function(){
+					$('#para1').toggle();
+				});*/
+
+				$('#btn2').hover(function(){
+					$('#para1').toggle().css('color','red');
+				});
+
+				$('#btn1').on('mouseenter',function(){
+					$('#para1').css('color','black');
+				});
+
+				$('#btn1').on('mouseleave',function(){
+					$('#para1').toggle();
+				});
+
+				$('#btn3').mousedown(function(){
+					$('#para1').toggle().css('color','red');
+				});
+				$('#btn3').mouseup(function(){
+					$('#para1').toggle().css('color','red');
+				});
+
+					$('#btn4').click(function(e){
+					//alert(e.currentTarget.id);
+					//alert(e.currentTarget.outerHTML);
+					alert(e.currentTarget.innerHTML);
+					//alert(e.currentTarget.className);
+					
+
+						
+				});
+
+
+					$('#btn3').mousemove(function(e){
+					console.log(' X:' + e.clientX + 'Y: ' + e.clientY);
+				});
+
+
+					$(document).mousemove(function(e){
+					console.log(' X:' + e.clientX + 'Y: ' + e.clientY);
+				});
+
+					$(document).mousemove(function(e){
+					$('#coords').html(' X:' + e.clientX + 'Y: ' + e.clientY);
+				});
+
+
+					$('input').focus(function(e){
+					$(this).css('background','pink');
+				});
+					
+					$('input').blur(function(e){
+					$(this).css('background','white');
+				});
+
+
+
+					$('input').keyup(function(e){
+					console.log(e.target.value);
+				});
+
+
+					$('select#gender').change(function(e){
+					alert('Changed ' + e.target.value);
+				});
+
+
+
+					$('form').submit(function(e){
+					e.preventDefault();
+					var name = $('input#name').val();
+					console.log('Name = ' + name);
+				});
+
+
+
+
+				});
+
+
+
+
+	</script>
+</body>
+</html>

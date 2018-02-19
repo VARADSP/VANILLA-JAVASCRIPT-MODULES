@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+			body{
+				font-size: 17px;
+				font-family: Arial;
+				background: #f4f4f4;
+				line-height: 1.5em;
+
+			}
+			header{
+				background: #333;
+				color: #fff;
+				padding: 20px;
+				text-align: center;
+				border-bottom: 4px #000 solid;
+				margin-bottom: 10px;
+
+			}
+			#container{
+				width: 90%;
+				margin: auto;
+				padding: 10px;
+
+			}
+			.myClass{
+				color:blue;
+				background: black;
+			}
+	</style>
+</head>
+<body>
+<header><h1>Jquery Crash Course</h1></header>
+	<div id="container">
+	<h3>Mouse Events</h3>
+	<button id="btn1">Toggle </button>
+	<button class="btn2">Toggle Color</button>
+	<button class="btn3">Hold</button>
+	<button id="btn4">Event</button>
+
+
+	<p class="para1">			This is just a example paragraph which I am using for this jquery session that I am <span>following from the internet cause I have nothing to do </span>now so Its just a passing of <span>time for me and also learning something new.</span>
+	</p>
+
+	<p class="para2">This is just a sample text</p>
+
+	<div id="myDiv">
+		<ul id="list-items">
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+		</ul>
+
+
+
+		<a href="www.google.com">Google</a>
+	</div>
+
+
+	</div>
+	<script>
+
+	$(document).ready(function(){
+
+		$('.para1').css('color','red');
+
+		$('p.para1').css({color:'red',background:'#ccc'});
+
+		//$('p.para2').addClass('myClass');
+		//$('p.para2').removeClass('myClass');
+
+		$('#btn1').click(function(){
+			$('p.para2').toggleClass('myClass');
+		});
+
+
+		//$('#myDiv').html('<h3><I>HELLO WORLD</I></h3>');
+
+		$('ul').append('<li>Append List Item</li>');
+		$('ul').prepend('<li>prepend List Item</li>');
+
+		$('.para1').appendTo('.para2');
+		$('.para1').prependTo('.para2');
+		$('ul').before('Hello');
+		$('ul').after('World');
+
+
+		$('a').attr('target','_blank');
+
+		alert($('a').attr('href'));
+
+		$('a').removeAttr('target');
+
+
+
+
+	});
+
+	</script>
+</body>
+</html>

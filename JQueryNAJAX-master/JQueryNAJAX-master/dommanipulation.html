@@ -1,0 +1,165 @@
+<html>
+	<head>	
+	<title>DOM Manipulation</title>
+	<script src="jquery.min.js"></script>
+	<style>
+	
+	
+		#container{
+		
+		color:#333;
+		background:#fff;
+		margin:auto;
+		padding:20px;
+		width:80%;
+		}
+		header{
+		
+		text-align:center;
+		background:grey;
+		
+		
+		
+		}
+		
+		.myClass{
+		
+			
+			background-color:blue;
+			color:red;
+			padding:20px;
+		}
+		
+		
+			</style>
+		</head>
+		<body>
+			<div id="container" >
+			
+			<header>
+			
+				<h1>Jquery DOM Manipulation</h1>
+				</header>
+			
+					<button id="btn1">Toggle</button>
+						
+								<button id="btn2">Click Me!</button>
+								<button id="btn3">Click Me!</button>
+		
+								<button id="btn4">Click Me!</button>
+		
+						
+					<p class="para1">
+						This is just a jquery practice for my website project,Its gonna help me so I am writing paragragh to play with
+						Its editable material,It may not have any meaning
+						</p>
+						
+						
+						<hr>
+						
+							<p class="para2">
+						This is just a jquery practice for my website project,Its gonna help me so I am writing paragragh to play with
+						Its editable material,It may not have any meaning
+						</p>
+						
+					<input type="text" id="newItem">	
+					
+					<ul id="list">
+					<li>New Item1</li>
+					<li>New Item2</li>
+					<li>New Item3</li>
+					<li>New Item4</li>
+					<li>New Item5</li>
+					<li>New Item6</li>
+						</ul>
+						
+						<hr>
+						
+						<ul id="users">
+					
+						</ul>
+						
+						<div id="myDiv"></div>
+				</div>
+				
+				
+				<script>
+					$(document).ready(function(){
+					
+					$('.para1').css('color','red');
+					
+					
+					$('#btn1').click(function(){
+					
+					
+					$('.para1').toggle().css('color','blue');
+					
+					});
+					
+					$('#btn2').click(function(){
+					
+					
+					$('.para2').toggleClass('myClass');
+					
+					
+					});
+					
+					
+						$('#btn3').click(function(){
+					
+					
+					$('#myDiv').html('<h1>Hello World</h1>');
+					
+					
+					
+					
+					});
+					
+						
+					//$('p').wrap('<h1>');
+					//$('p').wrapAll('<h2>');
+					
+					
+					$('#newItem').keyup(function(e){
+					
+					var code = e.which;
+					
+					if(code == 13){
+					e.preventDefault();
+					$('ul').append('<li>'+e.target.value+'</li>');
+					
+					
+					}
+					else if(code == 8)
+					{
+					
+					e.preventDefault();
+					$('ul').remove('<li>'+e.target.value+'</li>');
+					
+					}
+					
+					});
+					
+					
+					var myArr = ['Varad','VSP','Hacker','Anonymous'];
+					
+					$.each(myArr,function(i,val){
+					
+					$('#users').append('<li>'+val+'</li>');
+					
+					
+					});
+					
+					
+					var newArr = $('ul#list li').toArray();
+					$.each(newArr,function(i,val){
+					console.log(val.innerHTML);
+					
+					
+					});
+					
+					});
+					
+					</script>
+			</body>
+	</html>
